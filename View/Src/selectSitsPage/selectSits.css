@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background: #daeefc;
+}
+
+.slogan-div {
+    background: #daeefc;
+}
+
+.showcase {
+    border-radius: 7px;
+    display: flex;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    list-style: none;
+    font-weight: 500;
+    margin: 20px 0;
+    color: #777;
+}
+
+.showcase li {
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 0.3vh;
+}
+
+.seat {
+    height: 23px;
+    width: 23px;
+    background-color: #4caf50;
+    display: inline-block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 0.5vh;
+}
+
+.seat.selected {
+    background-color: #e72141;
+}
+
+.seat.taken {
+    background-color: #838f97;
+    content:url('../../Asserts/selected_seat.png');
+}
+
+.all-seats {
+    width: 40%;
+    perspective: 1000px;
+    text-align: center;
+}
+
+.all-seats .screen {
+    display: inline-block;
+    width: 80%;
+    height: 30px;
+    background-color: #fff;
+    transform: rotateX(-45deg);
+    box-shadow: 0px 0px 7px 0px #ffffff;
+    margin: 15px 0;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.row .seat:nth-of-type(2) {
+    margin-right: 2vh;
+}
+
+.row .seat:nth-last-of-type(2) {
+    margin-left: 2vh;
+}
+
+.all-seats .seat {
+    margin-left: 0.6vh;
+}
+
+.all-seats .seat:not(.taken):hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.text span {
+    color: rgb(115, 115, 253);
+}
+
+.select-seats-title {
+    color: #ffc500;
+}
+
+.next-btn {
+    background: #ffc500;
+    color: black;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.next-btn-disabled {
+    background: #ffc500;
+    opacity: 0.3;
+    color: black;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    transition-duration: 0.3s;
+}
+
+.next-btn:hover {
+    box-shadow: 0px 2px 5px 2px #97B1BF;
+}
+
+.select-seats-component {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1d1d48;
+    /* background-color: #daeefc; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin: 0;
+    /* width: 50%;
+    min-width: 800px;
+    margin: auto; */
+}
+
+.icon-img {
+    width: 484px;
+    height: 124px;
+    display: inline-block;
+}
