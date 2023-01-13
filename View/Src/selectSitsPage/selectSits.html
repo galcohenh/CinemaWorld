@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>hello</title>
+    <link rel="stylesheet" href="selectSits.css">
+</head>
+
+<body>
+    <div class="slogan-div">
+        <img src="../../Asserts/slogan.png" class="icon-img">
+    </div>
+    <div class="select-seats-component">
+        <h1 class="select-seats-title">Select your seats</h1>
+        <div class="all-seats"></div>
+        <ul class="showcase">
+            <li>
+                <div class="seat"></div>
+                <small>Available</small>
+            </li>
+            <li>
+                <div class="seat selected"></div>
+                <small>Selected</small>
+            </li>
+            <li>
+                <div class="seat taken"></div>
+                <small>Occupied</small>
+            </li>
+        </ul>
+        <div id="next-btn" class="next-btn-disabled">
+            Next
+            <br>
+            <small>(You selected <span id="seatsSelected">0</span> seats)</small>
+        </div>
+        <br>
+    </div>
+</body>
+<footer>
+    <script src="selectSits.js"></script>
+</footer>
+
+</html>
