@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+</head>
+<body>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">            
+            <%for (var i = 0; i < movies.length; i++) {%>                
+                <article>                    
+                    <span><%=movies[i].id%></span>
+                    <span><%=movies[i].title%></span>
+                    <span><%=movies[i].content%></span>
+                </article>
+            <%}%>            
+        </main>
+    </div>
+</body>
+</html>

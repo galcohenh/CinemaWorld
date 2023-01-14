@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { index } = require('../controllers/screen');
+const { index } = require('../controllers/movie');
 
 const router = express.Router();
 
