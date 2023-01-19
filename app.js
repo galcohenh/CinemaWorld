@@ -4,11 +4,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const customEnv = require('custom-env');
 
+const {router, apiRouter} = require('./routes/movie')
+
 customEnv.env(process.env.NODE_ENV, './config');
 
-// mongoose.connect(process.env.CONNECTION_STRING, 
-//     {   useNewUrlParser: true, 
-//         useUnifiedTopology: true });
+mongoose.connect('mongodb://127.0.0.1:27017',//process.env.CONNECTION_STRING, 
+    {   useNewUrlParser: true, 
+        useUnifiedTopology: true });
 
 var app = express();
 
