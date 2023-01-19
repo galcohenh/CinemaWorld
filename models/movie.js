@@ -10,10 +10,6 @@ const Movie = new Schema({
         type: Date,
         default: Date.now()
     },
-    // screens: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Screen'
-    // },
     screens: [{
         time: {
             type: Date,
