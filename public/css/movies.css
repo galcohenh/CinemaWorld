@@ -26,3 +26,22 @@ body {
     margin: auto;
     height: 190px;
 }
+
+.movie-cards-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.movie-card {
+    max-width: 270px;
+    width: 20%;
+}
+
+.movie-cards-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    color: #cbe8fc;
+    margin-left: 15px;
+}
