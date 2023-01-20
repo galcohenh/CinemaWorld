@@ -1,0 +1,47 @@
+body {
+    background: #161438;
+}
+
+.slogan-div {
+    position: sticky;
+    top: 0;
+}
+
+.icon-img {
+    width: 484px;
+    height: 124px;
+    display: inline-block;
+}
+
+.poster {
+    width: 100%;
+}
+
+.select-movie {
+    box-shadow: 0 0 18px rgb(0 0 0 / 69%);
+    position: relative; top: -100px;
+    background-color: #e72141;
+    width: 50%;
+    max-height: 100px;
+    margin: auto;
+    height: 190px;
+}
+
+.movie-cards-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.movie-card {
+    max-width: 270px;
+    width: 20%;
+}
+
+.movie-cards-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    color: #cbe8fc;
+    margin-left: 15px;
+}
