@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movies</title>
     <link rel="stylesheet" href="/css/movies.css">
+    <link rel="stylesheet" href="/css/order_box.css">
 </head>
 <body>
     <div class="slogan-div">
@@ -13,7 +14,14 @@
     <div class="poster-container"></div>
 
     <div class="select-movie">
-        <h1>put elad code here!</h1>
+        <form action="" method="post">
+            <div id="box"><center><header style="color: white;font-size:xx-large;">order tickets</header></center>
+                <div id="firstselect" class="selects"></div>
+                <div id="secondselect" class="selects"></div>
+                <div id="thirdselect" class="selects"></div>
+                <button type="submit" id="send">send</button>
+                </form>
+        
     </div>
     <h1 class="movie-cards-title">Now in the cinema</h1>
     <div class="movie-cards-container">
@@ -37,5 +45,6 @@
 </body>
 <footer>
     <script src="/js/movies.js"></script>
+    <script src="/js/order_box.js"></script>
 </footer>
 </html>
