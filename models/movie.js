@@ -30,6 +30,10 @@ const Movie = new Schema({
     duration: {
         type: Number,
         required: true
+    },
+    img: {
+        type: String,
+        required: true
     }
 });
 
