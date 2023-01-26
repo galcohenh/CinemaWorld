@@ -9,7 +9,7 @@ const index = async(req, res) => {
 }
 
 const createMovie = async (req, res) => {
-    const {name, releaseDate, screens, genre, duration} = req.body;
+    const {name, releaseDate, screens, genre, duration, img} = req.body;
 
     const screensWithRefToHalls = await Promise.all(screens.map(async screen => {
         const [hall] = await hallService.getHallByNumber(screen.hall.number);
@@ -31,7 +31,7 @@ const createMovie = async (req, res) => {
         return res.status(404).json({ errors: ['Hall not found'] });
     }
 
-    const newMovie = await movieService.createMovie(name, releaseDate, screensWithRefToHalls, genre, duration);
+    const newMovie = await movieService.createMovie(name, releaseDate, screensWithRefToHalls, genre, duration, img);
     res.json(newMovie);
 };
 

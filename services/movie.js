@@ -1,13 +1,14 @@
 const Movie = require('../models/movie');
 
-const createMovie = async (name, releaseDate, screens, genre, duration) => {
+const createMovie = async (name, releaseDate, screens, genre, duration, img) => {
 
     const movie = new Movie({
         name: name,
         releaseDate: releaseDate,
         screens,
         genre: genre,
-        duration: duration
+        duration: duration,
+        img: img
     });
 
     return await movie.save();
