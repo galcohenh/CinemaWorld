@@ -35,9 +35,10 @@
         <main role="main" class="pb-3">            
             <%for (var i = 0; i < movies.length; i++) {%>                
                 <article>                    
-                    <span><%=movies[i].id%></span>
-                    <span><%=movies[i].title%></span>
-                    <span><%=movies[i].content%></span>
+                    <span><%=movies[i].name%></span>
+                    <span><%=movies[i].releaseDate%></span>
+                    <span><%=movies[i].genre%></span>
+                    <span><%=movies[i].duration%></span>
                 </article>
             <%}%>            
         </main>
