@@ -1,9 +1,19 @@
 const express = require('express');
 
-const { index } = require('../controllers/movie');
+const { index, createMovie, getMovies, getMovie } = require('../controllers/movie');
 
 const router = express.Router();
 
-router.get('/', index);
+router.route('/')
+    .get(index)
+    // .post(screenIndex)
 
-module.exports = router;
+router.route('/api/movies')
+    .post(createMovie)
+    .get(getMovies)
+
+router.route('/api/movies/:id')
+    .get(getMovie)
+
+
+module.exports = {router};

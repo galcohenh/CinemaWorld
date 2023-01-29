@@ -1,0 +1,91 @@
+body {
+    background: #161438;
+}
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.slogan-div {
+    position: sticky;
+    top: 0;
+}
+
+.icon-img {
+    width: 484px;
+    height: 124px;
+    display: inline-block;
+}
+
+.poster {
+    width: 100%;
+}
+
+.select-movie {
+    box-shadow: 0 0 18px rgb(0 0 0 / 69%);
+    position: relative; top: -100px;
+    background-color: #e72141;
+    width: 50%;
+    max-height: 100px;
+    margin: auto;
+    /* height: 190px; */
+}
+
+.movie-cards-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.movie-card {
+    max-width: 270px;
+    width: 20%;
+}
+
+.movie-cards-title {
+    font-weight: 400;
+    color: #cbe8fc;
+    margin-left: 15px;
+}
+
+#orderTicketsBox{
+    width: 100%;
+    border: 100%;
+    background-color: #e72141;
+    padding: 20px; 
+}
+select{
+    width: 100%;
+    height: 30px;
+}
+.send-btn{
+    margin-top: 20px;
+    color: #FFF;
+    background: #1d1d48;
+    border: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: #cbe8fc;
+    font-size: 24px;
+    font-weight: 700;
+    width: 21%;
+}
+.input-select-movie{
+    margin-top: 20px;
+    display: inline-block;
+    font-size: large;
+    height: 55px;
+}
+.order-tickets-form {
+    display: flex; 
+    justify-content: space-around;
+}
+.order-tickets-title {
+    color: white;
+    font-size:xx-large;
+    text-align: center;
+}
+.select-div {
+    width: 21%;
+}

@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>movies</title>
+    <link rel="stylesheet" href="/css/movies.css">
 </head>
+
 <body>
-    <div class="container-fluid">
-        <main role="main" class="pb-3">            
-            <%for (var i = 0; i < movies.length; i++) {%>                
-                <article>                    
-                    <span><%=movies[i].id%></span>
-                    <span><%=movies[i].title%></span>
-                    <span><%=movies[i].content%></span>
-                </article>
-            <%}%>            
-        </main>
+    <div class="slogan-div">
+        <img src="/assets/slogan_white.png" class="icon-img">
+    </div>
+    <div class="poster-container"></div>
+
+    <div class="select-movie">
+
+        <div id="orderTicketsBox">
+            <header class="order-tickets-title">Order tickets</header>
+            <form action="" method="post" class="order-tickets-form">
+                <div id="firstselect" class="select-div"></div>
+                <div id="secondselect" class="select-div"></div>
+                <div id="thirdselect" class="select-div"></div>
+                <button type="submit" class="input-select-movie send-btn">Order</button>
+            </form>
+        </div>
+
+    </div>
+    <h1 class="movie-cards-title">Now in the cinema</h1>
+
+    <!-- if you dont have records in the mongo, enable this -->
+    <!-- <div class="movie-cards-container">
+        <img class="movie-card" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="">
+        <img class="movie-card" src="https://dx35vtwkllhj9.cloudfront.net/paramountpictures/babylon/images/posters/image5.jpg" alt="">
+        <img class="movie-card" src="https://medias.unifrance.org/medias/140/109/224652/format_page/media.jpg" alt="">
+        <img class="movie-card" src="https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0138_1024x1024.jpeg?v=1571444282" alt="">
+    </div> -->
+
+    <div class="movie-cards-container">
+        <%for (var i=0; i < movies.length; i++) {%>
+            <img class="movie-card" alt="" src="<%=movies[i].img%>">
+        <%}%>
     </div>
 </body>
+<footer>
+    <script src="/js/movies.js"></script>
+    <script src="/js/order_box.js"></script>
+</footer>
+
 </html>

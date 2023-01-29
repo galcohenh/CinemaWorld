@@ -1,0 +1,137 @@
+[{
+  "_id": {
+    "$oid": "63d6d60252307ff0a02d7803"
+  },
+  "name": "spongebob",
+  "releaseDate": {
+    "$date": "2023-01-23T20:23:00Z"
+  },
+  "screens": [
+    {
+      "time": {
+        "$date": "2023-01-12T20:24:00Z"
+      },
+      "hall": {
+        "$oid": "63d6d58dcb56945c74d462cb"
+      },
+      "takenSeats": [
+        {
+          "_id": {
+            "$oid": "63d6d60252307ff0a02d7805"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "63d6d60252307ff0a02d7804"
+      }
+    }
+  ],
+  "genre": [
+    "comedy"
+  ],
+  "duration": 2,
+  "img": "https://m.media-amazon.com/images/M/MV5BOTMyOTAyY2YtNTEyZS00NGEwLTg5YWMtOTBkNmJlYTM0YTc0XkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63d6db2062facd6fd4a04a0b"
+  },
+  "name": "babylon",
+  "releaseDate": {
+    "$date": "2023-01-10T20:45:00Z"
+  },
+  "screens": [
+    {
+      "time": {
+        "$date": "2023-01-20T20:46:00Z"
+      },
+      "hall": {
+        "$oid": "63d6d58dcb56945c74d462cb"
+      },
+      "takenSeats": [
+        {
+          "_id": {
+            "$oid": "63d6db2062facd6fd4a04a0d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "63d6db2062facd6fd4a04a0c"
+      }
+    }
+  ],
+  "genre": [
+    "comedy"
+  ],
+  "duration": 2,
+  "img": "https://dx35vtwkllhj9.cloudfront.net/paramountpictures/babylon/images/posters/image5.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63d6db5562facd6fd4a04a10"
+  },
+  "name": "avatar",
+  "releaseDate": {
+    "$date": "2023-02-01T20:49:00Z"
+  },
+  "screens": [
+    {
+      "time": {
+        "$date": "2023-01-31T02:46:00Z"
+      },
+      "hall": {
+        "$oid": "63d6d58dcb56945c74d462cb"
+      },
+      "takenSeats": [
+        {
+          "_id": {
+            "$oid": "63d6db5562facd6fd4a04a12"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "63d6db5562facd6fd4a04a11"
+      }
+    }
+  ],
+  "genre": [
+    "comedy"
+  ],
+  "duration": 2,
+  "img": "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63d6db8562facd6fd4a04a15"
+  },
+  "name": "the wolf of wall street",
+  "releaseDate": {
+    "$date": "2023-02-01T20:49:00Z"
+  },
+  "screens": [
+    {
+      "time": {
+        "$date": "2023-01-31T02:46:00Z"
+      },
+      "hall": {
+        "$oid": "63d6d58dcb56945c74d462cb"
+      },
+      "takenSeats": [
+        {
+          "_id": {
+            "$oid": "63d6db8562facd6fd4a04a17"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "63d6db8562facd6fd4a04a16"
+      }
+    }
+  ],
+  "genre": [
+    "comedy"
+  ],
+  "duration": 2,
+  "img": "https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0138_1024x1024.jpeg?v=1571444282",
+  "__v": 0
+}]
