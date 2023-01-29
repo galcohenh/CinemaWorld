@@ -2,6 +2,10 @@ body {
     background: #161438;
 }
 
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .slogan-div {
     position: sticky;
     top: 0;
@@ -40,13 +44,12 @@ body {
 }
 
 .movie-cards-title {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 400;
     color: #cbe8fc;
     margin-left: 15px;
 }
 
-#box{
+#orderTicketsBox{
     width: 100%;
     border: 100%;
     background-color: #e72141;
@@ -56,23 +59,33 @@ select{
     width: 100%;
     height: 30px;
 }
-#send{
-    
+.send-btn{
     margin-top: 20px;
-    width: 95%;
-    height: 66px;
     color: #FFF;
     background: #1d1d48;
     border: none;
-    font-family: "Meoded-Pashut-Pro";
     letter-spacing: 1px;
-    padding: 0 0 4px;
     cursor: pointer;
     color: #cbe8fc;
     font-size: 24px;
     font-weight: 700;
-    
+    width: 21%;
 }
-.selects{
+.input-select-movie{
     margin-top: 20px;
+    display: inline-block;
+    font-size: large;
+    height: 55px;
+}
+.order-tickets-form {
+    display: flex; 
+    justify-content: space-around;
+}
+.order-tickets-title {
+    color: white;
+    font-size:xx-large;
+    text-align: center;
+}
+.select-div {
+    width: 21%;
 }

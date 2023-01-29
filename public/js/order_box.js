@@ -1,4 +1,4 @@
-var orderbox=document.getElementById('box')
+var orderbox=document.getElementById('orderTicketsBox')
 var firstselect=document.getElementById('firstselect')
 var secondselect=document.getElementById('secondselect')
 var thirdselect=document.getElementById('thirdselect')
@@ -29,7 +29,7 @@ var dateoptions=[{text:current},{text:tomor},{text:dayAfter},{text:next}]
 var select = document.createElement("select");
 
 var defaultOption = document.createElement("option");
-defaultOption.text = "choose a movie please";
+defaultOption.text = "Choose a movie please";
 defaultOption.value = "";
 defaultOption.disabled = true;
 defaultOption.selected = true;
@@ -77,9 +77,12 @@ select2.disabled=true;
 select3.disabled=true;
 select.addEventListener('change',function(){
 select2.disabled=false;
-datedefaultOption.text="choose a date please"
+datedefaultOption.text="Choose a date please"
 })
 select2.addEventListener('change',function(){
     select3.disabled=false;
     hourdefaultOption.text="choose time please"
     })
+select.className = "input-select-movie";
+select2.className = "input-select-movie";
+select3.className = "input-select-movie";

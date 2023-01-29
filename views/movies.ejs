@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,14 +15,17 @@
     <div class="poster-container"></div>
 
     <div class="select-movie">
-        <form action="" method="post">
-            <div id="box">
-                <header style="color: white;font-size:xx-large;">order tickets</header>
-                <div id="firstselect" class="selects"></div>
-                <div id="secondselect" class="selects"></div>
-                <div id="thirdselect" class="selects"></div>
-                <button type="submit" id="send">send</button>
-        </form>
+
+        <div id="orderTicketsBox">
+            <header class="order-tickets-title">Order tickets</header>
+            <form action="" method="post" class="order-tickets-form">
+                <div id="firstselect" class="select-div"></div>
+                <div id="secondselect" class="select-div"></div>
+                <div id="thirdselect" class="select-div"></div>
+                <button type="submit" class="input-select-movie send-btn">Order</button>
+            </form>
+        </div>
+
     </div>
     <h1 class="movie-cards-title">Now in the cinema</h1>
     <div class="movie-cards-container">
@@ -56,4 +60,5 @@
     <script src="/js/movies.js"></script>
     <script src="/js/order_box.js"></script>
 </footer>
+
 </html>
