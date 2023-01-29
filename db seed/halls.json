@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "63d6d58dcb56945c74d462cb"
+  },
+  "number": 12,
+  "rows": 10,
+  "columns": 10
+}]

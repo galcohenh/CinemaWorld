@@ -8,7 +8,7 @@ const {router: movieRouter} = require('./routes/movie');
 
 customEnv.env(process.env.NODE_ENV, './config');
 
-mongoose.connect('mongodb://127.0.0.1:27017',//process.env.CONNECTION_STRING, 
+mongoose.connect('mongodb://127.0.0.1:27017/cinemaWorld',//process.env.CONNECTION_STRING, 
     {   useNewUrlParser: true, 
         useUnifiedTopology: true });
 

@@ -30,5 +30,5 @@ const onCreateMovie = () =>{
             'Content-type': 'application/json',
         }
     })
-    console.log({name, releaseDate, genre, duration, imgUrl, screens})
+    // console.log({name, releaseDate, genre, duration, imgUrl, screens})
 }

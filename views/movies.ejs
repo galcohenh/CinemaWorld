@@ -28,32 +28,19 @@
 
     </div>
     <h1 class="movie-cards-title">Now in the cinema</h1>
-    <div class="movie-cards-container">
-        <img class="movie-card" src="/assets/movie_cards/movie_card1.png" alt="">
-        <img class="movie-card" src="/assets/movie_cards/movie_card2.png" alt="">
-        <img class="movie-card" src="/assets/movie_cards/movie_card3.png" alt="">
-        <img class="movie-card" src="/assets/movie_cards/movie_card4.png" alt="">
-    </div>
 
-    <div class="container-fluid">
-        <main role="main" class="pb-3">
-            <%for (var i=0; i < movies.length; i++) {%>
-                <article>
-                    <span>
-                        <%=movies[i].name%>
-                    </span>
-                    <span>
-                        <%=movies[i].releaseDate%>
-                    </span>
-                    <span>
-                        <%=movies[i].genre%>
-                    </span>
-                    <span>
-                        <%=movies[i].duration%>
-                    </span>
-                </article>
-                <%}%>
-        </main>
+    <!-- if you dont have records in the mongo, enable this -->
+    <!-- <div class="movie-cards-container">
+        <img class="movie-card" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg" alt="">
+        <img class="movie-card" src="https://dx35vtwkllhj9.cloudfront.net/paramountpictures/babylon/images/posters/image5.jpg" alt="">
+        <img class="movie-card" src="https://medias.unifrance.org/medias/140/109/224652/format_page/media.jpg" alt="">
+        <img class="movie-card" src="https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0138_1024x1024.jpeg?v=1571444282" alt="">
+    </div> -->
+
+    <div class="movie-cards-container">
+        <%for (var i=0; i < movies.length; i++) {%>
+            <img class="movie-card" alt="" src="<%=movies[i].img%>">
+        <%}%>
     </div>
 </body>
 <footer>
