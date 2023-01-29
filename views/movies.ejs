@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movies</title>
     <link rel="stylesheet" href="/css/movies.css">
-    <link rel="stylesheet" href="/css/order_box.css">
 </head>
+
 <body>
     <div class="slogan-div">
         <img src="/assets/slogan_white.png" class="icon-img">
@@ -15,13 +15,13 @@
 
     <div class="select-movie">
         <form action="" method="post">
-            <div id="box"><center><header style="color: white;font-size:xx-large;">order tickets</header></center>
+            <div id="box">
+                <header style="color: white;font-size:xx-large;">order tickets</header>
                 <div id="firstselect" class="selects"></div>
                 <div id="secondselect" class="selects"></div>
                 <div id="thirdselect" class="selects"></div>
                 <button type="submit" id="send">send</button>
-                </form>
-        
+        </form>
     </div>
     <h1 class="movie-cards-title">Now in the cinema</h1>
     <div class="movie-cards-container">
@@ -32,15 +32,23 @@
     </div>
 
     <div class="container-fluid">
-        <main role="main" class="pb-3">            
-            <%for (var i = 0; i < movies.length; i++) {%>                
-                <article>                    
-                    <span><%=movies[i].name%></span>
-                    <span><%=movies[i].releaseDate%></span>
-                    <span><%=movies[i].genre%></span>
-                    <span><%=movies[i].duration%></span>
+        <main role="main" class="pb-3">
+            <%for (var i=0; i < movies.length; i++) {%>
+                <article>
+                    <span>
+                        <%=movies[i].name%>
+                    </span>
+                    <span>
+                        <%=movies[i].releaseDate%>
+                    </span>
+                    <span>
+                        <%=movies[i].genre%>
+                    </span>
+                    <span>
+                        <%=movies[i].duration%>
+                    </span>
                 </article>
-            <%}%>            
+                <%}%>
         </main>
     </div>
 </body>
