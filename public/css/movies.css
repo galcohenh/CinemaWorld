@@ -36,6 +36,7 @@ body {
     justify-content: space-between;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 5%;
 }
 
 .movie-card {
@@ -54,6 +55,7 @@ body {
     border: 100%;
     background-color: #e72141;
     padding: 20px; 
+    
 }
 select{
     width: 100%;
@@ -78,7 +80,7 @@ select{
     height: 55px;
 }
 .order-tickets-form {
-    display: flex; 
+    /* display: flex;  */
     justify-content: space-around;
 }
 .order-tickets-title {
@@ -88,4 +90,20 @@ select{
 }
 .select-div {
     width: 21%;
+}
+#selectmovie{
+    margin-top: 10px;
+}
+#selectdate{
+    margin-top: 10px;
+}
+#selecthour{
+    margin-top: 10px;
+}
+#header_order_box{
+    font-family: 'Meoded-Pashut-Pro';
+    font-weight: 900;
+    text-align: center;
+    font-size: 67px;
+    color: #cbe8fc;
 }

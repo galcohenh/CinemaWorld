@@ -17,12 +17,25 @@
     <div class="select-movie">
 
         <div id="orderTicketsBox">
-            <header class="order-tickets-title">Order tickets</header>
-            <form action="" method="post" class="order-tickets-form">
-                <div id="firstselect" class="select-div"></div>
+            <header class="order-tickets-title" id="header_order_box">Order tickets</header>
+            <form  action="" method="post" class="order-tickets-form">
+                <select id="selectmovie">
+                    <option selected>choose a movie</option>
+                    <%for (var i=0; i < movies.length; i++) {%>
+                        <option value="1"><%=movies[i].name%></option>
+                    <%}%>
+                  </select>
+                  <select id="selectdate">
+                    <option selected>choose a date</option>
+                  </select>
+                  <select id="selecthour">
+                    <option selected>choose an hour</option>
+                  </select>
+                  
+                <!-- <div id="firstselect" class="select-div"></div>
                 <div id="secondselect" class="select-div"></div>
-                <div id="thirdselect" class="select-div"></div>
-                <button type="submit" class="input-select-movie send-btn">Order</button>
+                <div id="thirdselect" class="select-div"></div> -->
+                <center><button type="submit" class="input-select-movie send-btn">Order</button></center>
             </form>
         </div>
 
