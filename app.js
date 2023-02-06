@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const customEnv = require('custom-env');
+const dotenv = require('dotenv');
+const env = process.env.NODE_ENV || 'local';
+
+dotenv.config({path: __dirname + `/config/.env.${env}`});
 
 const {router: movieRouter} = require('./routes/movie');
 
-customEnv.env(process.env.NODE_ENV, './config');
-
-mongoose.connect('mongodb://127.0.0.1:27017/cinemaWorld',//process.env.CONNECTION_STRING, 
+mongoose.connect(process.env.CONNECTION_STRING, 
     {   useNewUrlParser: true, 
         useUnifiedTopology: true });
 

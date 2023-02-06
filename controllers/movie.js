@@ -41,7 +41,7 @@ const getMovie = async (req, res) => {
 };
 
 const getMovies = async (req, res) => {
-    const movies = await movieService.getMovies();
+    const movies = await movieService.getMovies(req.query.pageNum);
     res.json(movies);
 };
 
