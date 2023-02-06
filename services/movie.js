@@ -18,8 +18,13 @@ const getMovieById = async (id) => {
     return await Movie.findById(id);
 };
 
-const getMovies = async () => {
-    return await Movie.find({}).populate('screens.hall');
+const getMovies = async (page) => {
+    if (page) {
+        const pageSize = process.env.AMOUNT_OF_MOVIES_PER_RESPONSE || 4;
+        return await Movie.find({}).sort({_id: 1}).limit(Number(pageSize)).skip((Number(page) - 1) * pageSize).populate('screens.hall');
+    }
+
+    return await Movie.find({}).sort({_id: 1}).populate('screens.hall');
 };
 
 const updateMovie = async (id, name, releaseDate, screens, genre, duration) => {
