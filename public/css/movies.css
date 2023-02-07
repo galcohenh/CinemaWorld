@@ -78,9 +78,10 @@ select{
     display: inline-block;
     font-size: large;
     height: 55px;
+    width: 21%
 }
 .order-tickets-form {
-    /* display: flex;  */
+    display: flex; 
     justify-content: space-around;
 }
 .order-tickets-title {
@@ -90,20 +91,4 @@ select{
 }
 .select-div {
     width: 21%;
-}
-#selectmovie{
-    margin-top: 10px;
-}
-#selectdate{
-    margin-top: 10px;
-}
-#selecthour{
-    margin-top: 10px;
-}
-#header_order_box{
-    font-family: 'Meoded-Pashut-Pro';
-    font-weight: 900;
-    text-align: center;
-    font-size: 67px;
-    color: #cbe8fc;
 }
