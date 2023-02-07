@@ -18,7 +18,7 @@ for (let i = 0; i <hours_options.length; i++) {
     selecthour.appendChild(option);
   }
 const posterContainer = document.querySelector('.poster-container');
-const posterIndex = Math.floor(Math.random() * 4) + 1;
+const posterIndex = Math.floor(Math.random() * 7) + 1;
 var poster = document.createElement("img");
 poster.src = `../assets/posters/poster${posterIndex}.png`
 poster.className = "poster";
