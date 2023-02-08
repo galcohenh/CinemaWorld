@@ -30,5 +30,6 @@ app.use('/', movieRouter);
 app.use('/screen', require('./routes/screen'));
 app.use('/order', require('./routes/order_tickets'));
 app.use('/admin', require('./routes/admin'));
+app.use('/about', require('./routes/about'));
 
 app.listen(process.env.PORT || 8080); 

@@ -1,44 +1,58 @@
 body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  section {
-    margin-bottom: 20px;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-  .movie-cards-container {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
+header {
+  background-color: #161438;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  margin-left: 15px !important;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #161438;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-cards-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
 }
 
 .movie-card {
-    max-width: 270px;
-    width: 20%;
+  max-width: 270px;
+  width: 20%;
+}
+
+.icon-img {
+  width: 242px;
+  height: 62px;
+  position: absolute;
+  left: 0;
+}
+
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
 }
