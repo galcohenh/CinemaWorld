@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movies</title>
-    <link rel="stylesheet" href="/css/movies.css">
-</head>
+    <link rel="stylesheet" href="/css/movies.css" />
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+      integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo="
+      crossorigin="anonymous"
+    ></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/movies.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="slogan-div">
-        <img src="/assets/slogan_white.png" class="icon-img">
-        <a href="about">about</a>
-        <a href="admin">admin</a>
+      <img src="/assets/slogan_white.png" class="icon-img" />
+      <a href="about">about</a>
+      <a href="admin">admin</a>
     </div>
     <div class="poster-container"></div>
 
     <div class="select-movie">
-
-        <div id="orderTicketsBox">
-            <header class="order-tickets-title">Order tickets</header>
-            <form  action="http://localhost:8080/screen" method="get" class="order-tickets-form">
-                <select id="selectmovie" class="input-select-movie">
-                    <option selected>choose a movie</option>
-                    <%for (var i=0; i < movies.length; i++) {%>
-                        <option value="1"><%=movies[i].name%></option>
-                    <%}%>
-                  </select>
-                  <select id="selectdate" class="input-select-movie">
-                    <option selected>choose a date</option>
-                  </select>
-                  <select id="selecthour" class="input-select-movie">
-                    <option selected>choose an hour</option>
-                  </select>
-                <button type="submit" class="input-select-movie send-btn">Order</button>
-            </form>
-        </div>
-
+      <div id="orderTicketsBox">
+        <header class="order-tickets-title">Order tickets</header>
+        <form
+          action="http://localhost:8080/screen"
+          method="get"
+          class="order-tickets-form"
+        >
+          <select id="selectmovie" onchange="onSelectMovieSearch(event)" class="input-select-movie">
+            <option selected>choose a movie</option>
+            <%for (var i=0; i < movies.length; i++) {%>
+            <option value="<%= movies[i]._id %>"><%=movies[i].name%></option>
+            <%}%>
+          </select>
+          <select id="selectdate" class="input-select-movie">
+            <option selected>choose a date</option>
+          </select>
+          <select id="selecthour" class="input-select-movie">
+            <option selected>choose an hour</option>
+          </select>
+          <button type="submit" class="input-select-movie send-btn">
+            Order
+          </button>
+        </form>
+      </div>
     </div>
     <h1 class="movie-cards-title">Now in the cinema</h1>
 
@@ -49,13 +59,9 @@
     </div> -->
 
     <div class="movie-cards-container">
-        <%for (var i=0; i < movies.length; i++) {%>
-            <img class="movie-card" alt="" src="<%=movies[i].img%>">
-        <%}%>
+      <%for (var i=0; i < movies.length; i++) {%>
+      <img class="movie-card" alt="" src="<%=movies[i].img%>" />
+      <%}%>
     </div>
-</body>
-<footer>
-    <script src="/js/movies.js"></script>
-</footer>
-
+  </body>
 </html>
