@@ -59,9 +59,10 @@ function onSelectMovieSearch(e) {
         const dateOfScreen = new Date(screen.time);
         const dateKey = `${dateOfScreen.getDate()}/${dateOfScreen.getMonth()}`;
         const screenHour = `${dateOfScreen.getHours()}:${dateOfScreen.getMinutes()}`;
+        availableScreen = { hour: screenHour, fullDate: screen.time };
         availableScreens[dateKey] = availableScreens[dateKey]
-          ? [...availableScreens[dateKey], screenHour]
-          : [{ hour: screenHour, fullDate: screen.time }];
+          ? [...availableScreens[dateKey], availableScreen]
+          : [availableScreen];
       });
       renderDayOptions(availableScreens);
     },

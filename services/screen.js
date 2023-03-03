@@ -1,5 +1,16 @@
 // const Screen = require('../models/Screen');
-// const hallService = require('./hall'); 
+// const hallService = require('./hall');
+const movieService = require("../services/movie");
+
+const getMovieScreen = async (movieId, time) => {
+  const timeDateObject = new Date(time);
+  const movie = await movieService.getMovieById(movieId);
+  const screen = movie.screens.find((screen) => {
+    console.log(timeDateObject, screen.time);
+    return screen.time.getTime() == timeDateObject.getTime();
+  });
+  return screen;
+};
 
 // const createScreen = async (time, hall, takenSeats) => {
 //     const movie = new Article({
@@ -27,3 +38,7 @@
 
 //     return await movie.save();
 // };
+
+module.exports = {
+  getMovieScreen,
+};
