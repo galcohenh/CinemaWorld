@@ -1,9 +1,17 @@
-const Movie = require('../models/movie');
+const screenService = require("../services/screen");
+const hallService = require("../services/hall")
 
-const index = (req, res) => {
-    res.render("../views/screen", { seats: [] });
-}
+const index = async (req, res) => {
+  const screen = await screenService.getMovieScreen(
+    req.query.id,
+    req.query.time
+  );
+  res.render("../views/screen", {
+    seats: [],
+    screen,
+  });
+};
 
-module.exports =  {
-    index
+module.exports = {
+  index,
 };
