@@ -92,3 +92,10 @@ select{
 .select-div {
     width: 21%;
 }
+
+footer {
+    background-color: #161438;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }

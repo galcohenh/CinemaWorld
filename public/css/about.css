@@ -38,6 +38,10 @@ footer {
   margin-top: 5%;
 }
 
+p {
+  margin: 0 17px 10px !important;
+}
+
 .movie-card {
   max-width: 270px;
   width: 20%;
