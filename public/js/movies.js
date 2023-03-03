@@ -1,21 +1,8 @@
-const selectdate = document.querySelector("#selectdate");
-const today = new Date();
-
-const hours_options = [
-  { text: "12:00" },
-  { text: "13:00" },
-  { text: "14:30" },
-  { text: "16:00" },
-  { text: "18:15" },
-  { text: "19:00" },
-  { text: "22:00" },
-];
-
-// const posterContainer = document.querySelector(".poster-container");
-// const posterIndex = Math.floor(Math.random() * 7) + 1;
-// var poster = document.createElement("img");
-// poster.src = `../assets/posters/poster${posterIndex}.png`;
-// poster.className = "poster";
+const posterContainer = document.querySelector(".poster-container");
+const posterIndex = Math.floor(Math.random() * 7) + 1;
+var poster = document.createElement("img");
+poster.src = `../assets/posters/poster${posterIndex}.png`;
+poster.className = "poster";
 // posterContainer.appendChild(poster);
 
 //--------------------------------
@@ -23,7 +10,7 @@ function redirectToScreenPage(movieId, time) {
   const queryString =
     "?id=" + encodeURIComponent(movieId) + "&time=" + encodeURIComponent(time);
 
-  window.location.href = "http://localhost:8080/screen" + queryString;
+  window.location.href = "/screen" + queryString;
 }
 
 $(document).ready(function () {
@@ -44,7 +31,7 @@ function renderDayOptions(screens) {
     optionElement.textContent = screenDay;
     $("#selectdate").append(optionElement);
   });
-  
+
   $("#selectdate").change((e) => {
     const selectedDay = e.target.value;
     renderHours(screens[selectedDay]);
