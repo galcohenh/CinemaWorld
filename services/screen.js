@@ -6,7 +6,6 @@ const getMovieScreen = async (movieId, time) => {
   const timeDateObject = new Date(time);
   const movie = await movieService.getMovieById(movieId);
   const screen = movie.screens.find((screen) => {
-    console.log(timeDateObject, screen.time);
     return screen.time.getTime() == timeDateObject.getTime();
   });
   return screen;

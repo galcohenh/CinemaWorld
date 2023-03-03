@@ -1,9 +1,8 @@
-const posterContainer = document.querySelector(".poster-container");
 const posterIndex = Math.floor(Math.random() * 7) + 1;
 var poster = document.createElement("img");
 poster.src = `../assets/posters/poster${posterIndex}.png`;
 poster.className = "poster";
-// posterContainer.appendChild(poster);
+$(".poster-container").append(poster);
 
 //--------------------------------
 function redirectToScreenPage(movieId, time) {
