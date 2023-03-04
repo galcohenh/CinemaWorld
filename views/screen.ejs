@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>hello</title>
-    <link rel="stylesheet" href="/css/screen.css">
-</head>
+    <link rel="stylesheet" href="/css/screen.css" />
+  </head>
 
-<body>
+  <body>
     <div class="slogan-div">
-        <img src="/assets/slogan_black.png" class="icon-img">
+      <img src="/assets/slogan_black.png" class="icon-img" />
     </div>
     <div class="select-seats-component">
-        <h1 class="select-seats-title">Select your seats</h1>
-        <div class="all-seats"></div>
-        <ul class="showcase">
-            <li>
-                <div class="seat"></div>
-                <small>Available</small>
-            </li>
-            <li>
-                <div class="seat selected"></div>
-                <small>Selected</small>
-            </li>
-            <li>
-                <div class="seat taken"></div>
-                <small>Occupied</small>
-            </li>
-        </ul>
-        <div id="next-btn" class="next-btn-disabled">
-            Next
-            <br>
-            <small>(You selected <span id="seatsSelected">0</span> seats)</small>
-        </div>
-        <br>
+      <h1 class="select-seats-title">Select your seats</h1>
+      <div class="all-seats">
+        <div class="screen"></div>
+        <% for (var i = 0; i < screen.hall.rows; i++) { %>
+            <div class="row">
+              <% for (var j = 0; j < screen.hall.columns; j++) {
+                var isTaken = false;
+                for (var k = 0; k < screen.takenSeats.length; k++) {
+                  if (screen.takenSeats[k].row === i && screen.takenSeats[k].col === j) {
+                    isTaken = true;
+                    break;
+                  }
+                }
+                var seatClass = isTaken ? 'seat taken' : 'seat';
+              %>
+                <div class="<%= seatClass %>"></div>
+              <% } %>
+            </div>
+          <% } %>
+      </div>
+      <ul class="showcase">
+        <li>
+          <div class="seat"></div>
+          <small>Available</small>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <small>Selected</small>
+        </li>
+        <li>
+          <div class="seat taken"></div>
+          <small>Occupied</small>
+        </li>
+      </ul>
+      <div id="next-btn" class="next-btn-disabled">
+        Next
+        <br />
+        <small>(You selected <span id="seatsSelected">0</span> seats)</small>
+      </div>
+      <br />
     </div>
-</body>
-<footer>
+  </body>
+  <footer>
     <script src="/js/screen.js"></script>
-</footer>
-
+  </footer>
 </html>
