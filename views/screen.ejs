@@ -12,8 +12,8 @@
     <div class="select-seats-component">
       <h1 class="select-seats-title">Select your seats</h1>
       <div class="all-seats">
-        <div class="screen">
-          <% for (var i = 0; i < screen.hall.rows; i++) { %>
+        <div class="screen"></div>
+        <% for (var i = 0; i < screen.hall.rows; i++) { %>
             <div class="row">
               <% for (var j = 0; j < screen.hall.columns; j++) {
                 var isTaken = false;
@@ -29,7 +29,6 @@
               <% } %>
             </div>
           <% } %>
-        </div>
       </div>
       <ul class="showcase">
         <li>
