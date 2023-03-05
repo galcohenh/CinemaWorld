@@ -1,10 +1,10 @@
 const screenService = require("../services/screen");
-const hallService = require("../services/hall")
+const movieService = require("../services/movie");
 
 const index = async (req, res) => {
-  const screen = await screenService.getMovieScreen(
-    req.query.id,
-    req.query.time
+  const [movie] = await movieService.getMovieByScreenId(req.query.screenId);
+  const screen = movie.screens.find(
+    (screen) => screen.id.toString() == req.query.screenId
   );
   res.render("../views/screen", {
     seats: [],

@@ -3,6 +3,7 @@
   <head>
     <title>hello</title>
     <link rel="stylesheet" href="/css/screen.css" />
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -25,7 +26,7 @@
                 }
                 var seatClass = isTaken ? 'seat taken' : 'seat';
               %>
-                <div class="<%= seatClass %>"></div>
+                <div class="<%= seatClass %>" data-row="<%= i %>" data-col="<%= j %>"></div>
               <% } %>
             </div>
           <% } %>
