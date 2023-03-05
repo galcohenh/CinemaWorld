@@ -40,6 +40,15 @@
         </form>
       </div>
     </div>
+    <select id="selectgenre" onchange="onSelectGenreSearch(event)" class="input-select-movie">
+      <option selected>Choose a genre</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Family">Family</option>
+      <option value="Action">Action</option>
+      <option value="Sci-fi">Sci-fi</option>
+    </select>
+
     <h1 class="movie-cards-title">Now in the cinema</h1>
 
     <!-- if you dont have records in the mongo, enable this -->

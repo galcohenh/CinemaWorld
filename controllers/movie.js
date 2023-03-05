@@ -45,9 +45,16 @@ const getMovies = async (req, res) => {
     res.json(movies);
 };
 
+const getMoviesByGenre = async (req, res) => {
+    const movies = await movieService.groupMoviesByGenre(req.params.genre);
+    res.json(movies);
+  };
+  
+
 module.exports =  {
     index,
     getMovie,
     createMovie,
-    getMovies
+    getMovies,
+    getMoviesByGenre
 };

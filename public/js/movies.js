@@ -70,3 +70,18 @@ function onSelectMovieSearch(e) {
     },
   });
 }
+function onSelectGenreSearch(event) {
+  var genre = event.target.value;
+  console.log(`/api/genre/${genre}`)
+  $.ajax({
+    url: `/api/genre/${genre}`,
+    type: "GET",
+    dataType: "json",
+    success: function (response) {
+      
+    },
+    error: function (xhr) {
+      
+    },
+  });
+}

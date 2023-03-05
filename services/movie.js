@@ -61,10 +61,47 @@ const deleteMovie = async (id) => {
   return movie;
 };
 
+const groupMoviesByGenre = async (selectedGenre) => {
+  const pipeline = [
+    {
+      $match: {
+        genre: selectedGenre,
+      },
+    },
+    {
+      $group: {
+        _id: "$genre",
+        movies: {
+          $push: {
+            _id: "$_id",
+            name: "$name",
+            releaseDate: "$releaseDate",
+            screens: "$screens",
+            genre: "$genre",
+            duration: "$duration",
+            img: "$img",
+          },
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        movies: 1,
+      },
+    },
+  ];
+
+  const movies = await Movie.aggregate(pipeline);
+  return movies[0].movies;
+};
+
+
 module.exports = {
   createMovie,
   getMovieById,
   getMovies,
   updateMovie,
   deleteMovie,
+  groupMoviesByGenre
 };

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { index, createMovie, getMovies, getMovie } = require('../controllers/movie');
+const { index, createMovie, getMovies, getMovie,getMoviesByGenre } = require('../controllers/movie');
 
 const router = express.Router();
 
@@ -14,6 +14,10 @@ router.route('/api/movies')
 
 router.route('/api/movies/:id')
     .get(getMovie)
+
+router.route('/api/genre/:genre')
+    .get(getMoviesByGenre);
+  
 
 
 module.exports = {router};

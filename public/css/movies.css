@@ -99,3 +99,18 @@ footer {
     padding: 10px;
     text-align: center;
   }
+
+  .input-select-movie {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .input-select-movie option {
+    background-color: #fff;
+    color: #333;
+  }
