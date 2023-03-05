@@ -25,7 +25,7 @@
                 }
                 var seatClass = isTaken ? 'seat taken' : 'seat';
               %>
-                <div class="<%= seatClass %>"></div>
+                <div class="<%= seatClass %>" data-row="<%= i %>" data-col="<%= j %>"></div>
               <% } %>
             </div>
           <% } %>
