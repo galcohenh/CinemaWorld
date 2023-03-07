@@ -9,6 +9,9 @@ header {
   background-color: #161438;
   color: #fff;
   padding: 20px;
+}
+
+h1 {
   text-align: center;
 }
 
@@ -49,6 +52,7 @@ footer {
   height: 62px;
   position: absolute;
   left: 0;
+  cursor: pointer;
 }
 
 .about-content pre {

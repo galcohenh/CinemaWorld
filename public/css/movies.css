@@ -1,14 +1,25 @@
 body {
-    background: #161438;
+    background: #161438 !important;
 }
 
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
 .slogan-div {
     position: sticky;
     top: 0;
+    background: #161438b8;
 }
 
 .icon-img {
@@ -23,7 +34,8 @@ body {
 
 .select-movie {
     box-shadow: 0 0 18px rgb(0 0 0 / 69%);
-    position: relative; top: -100px;
+    position: relative;
+    top: -100px;
     background-color: #e72141;
     width: 50%;
     max-height: 100px;
@@ -50,18 +62,20 @@ body {
     margin-left: 15px;
 }
 
-#orderTicketsBox{
+#orderTicketsBox {
     width: 100%;
     border: 100%;
     background-color: #e72141;
-    padding: 20px; 
-    
+    padding: 20px;
+
 }
-select{
+
+select {
     width: 100%;
     height: 30px;
 }
-.send-btn{
+
+.send-btn {
     margin-top: 20px;
     color: #FFF;
     background: #1d1d48;
@@ -73,22 +87,26 @@ select{
     font-weight: 700;
     width: 21%;
 }
-.input-select-movie{
+
+.input-select-movie {
     margin-top: 20px;
     display: inline-block;
     font-size: large;
     height: 55px;
     width: 21%
 }
+
 .order-tickets-form {
-    display: flex; 
+    display: flex;
     justify-content: space-around;
 }
+
 .order-tickets-title {
     color: white;
-    font-size:xx-large;
+    font-size: xx-large;
     text-align: center;
 }
+
 .select-div {
     width: 21%;
 }
@@ -98,4 +116,17 @@ footer {
     color: #fff;
     padding: 10px;
     text-align: center;
-  }
+}
+
+.nav .nav-item {
+    display: inline-block;
+    font-size: large;
+    font-weight: bold;
+}
+
+.nav-item a {
+    color: white;
+}
+.nav-item a:hover {
+    color: #161438;
+}
