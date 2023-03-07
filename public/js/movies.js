@@ -4,10 +4,8 @@ poster.src = `../assets/posters/poster${posterIndex}.png`;
 poster.className = "poster";
 $(".poster-container").append(poster);
 
-//--------------------------------
-function redirectToScreenPage(movieId, time) {
-  const queryString =
-    "?id=" + encodeURIComponent(movieId) + "&time=" + encodeURIComponent(time);
+function redirectToScreenPage(screenId) {
+  const queryString = "?screenId=" + encodeURIComponent(screenId);
 
   window.location.href = "/screen" + queryString;
 }
@@ -16,10 +14,9 @@ $(document).ready(function () {
   $(".order-tickets-form").submit(function (event) {
     event.preventDefault();
 
-    var movieId = $("#selectmovie").val();
-    var time = $("#selecthour").val();
+    var screenId = $("#selecthour").val();
 
-    redirectToScreenPage(movieId, time);
+    redirectToScreenPage(screenId);
   });
 });
 
@@ -40,7 +37,7 @@ function renderDayOptions(screens) {
 function renderHours(hours) {
   hours.forEach((screenHour) => {
     const optionElement = document.createElement("option");
-    optionElement.value = screenHour.fullDate;
+    optionElement.value = screenHour.screenId;
     optionElement.textContent = screenHour.hour;
     $("#selecthour").append(optionElement);
   });
@@ -58,7 +55,11 @@ function onSelectMovieSearch(e) {
         const dateOfScreen = new Date(screen.time);
         const dateKey = `${dateOfScreen.getDate()}/${dateOfScreen.getMonth()}`;
         const screenHour = `${dateOfScreen.getHours()}:${dateOfScreen.getMinutes()}`;
-        availableScreen = { hour: screenHour, fullDate: screen.time };
+        const availableScreen = {
+          hour: screenHour,
+          fullDate: screen.time,
+          screenId: screen._id,
+        };
         availableScreens[dateKey] = availableScreens[dateKey]
           ? [...availableScreens[dateKey], availableScreen]
           : [availableScreen];

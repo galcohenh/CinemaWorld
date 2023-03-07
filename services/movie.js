@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const Movie = require("../models/movie");
 
 const createMovie = async (
@@ -22,6 +24,16 @@ const createMovie = async (
 
 const getMovieById = async (id) => {
   return await Movie.findById(id).populate("screens.hall");
+};
+
+const getMovieByScreenId = async (screenId) => {
+  const screenIdAsObjectId = mongoose.Types.ObjectId(screenId);
+
+  const movie = await Movie.find({ "screens._id": screenIdAsObjectId }).populate(
+    "screens.hall"
+  );
+
+  return movie;
 };
 
 const getMovies = async (page) => {
@@ -67,4 +79,5 @@ module.exports = {
   getMovies,
   updateMovie,
   deleteMovie,
+  getMovieByScreenId,
 };
