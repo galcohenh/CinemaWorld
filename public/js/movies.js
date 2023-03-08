@@ -70,6 +70,8 @@ function onSelectMovieSearch(e) {
     },
   });
 }
+
+
 function onSelectGenreSearch(event) {
   var genre = event.target.value;
   console.log(`/api/genre/${genre}`)
@@ -78,10 +80,23 @@ function onSelectGenreSearch(event) {
     type: "GET",
     dataType: "json",
     success: function (response) {
-      
+      // Get a reference to the movie cards container
+      var movieCardsContainer = $(".movie-cards-container");
+
+      // Clear the container of any existing movie cards
+      movieCardsContainer.empty();
+
+      // Iterate over the movie objects in the response
+      for (var i = 0; i < response.length; i++) {
+        // Create a new movie card element
+        var movieCard = $("<img>").addClass("movie-card").attr("src", response[i].img);
+
+        // Add the new movie card to the container
+        movieCardsContainer.append(movieCard);
+      }
     },
     error: function (xhr) {
-      
+      // Handle errors
     },
   });
 }
