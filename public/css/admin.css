@@ -46,18 +46,18 @@ footer {
     font-weight: bold;
 }
 
-.nav>li>a:hover {
+.nav-item a.unselected-nav {
+    background-color: #16143842 !important;
+    cursor: pointer;
+    color: #161438;
+}
+
+.nav-item a.selected-nav {
+    color: white;
     background-color: #161438 !important;
 }
 
-.nav>li>a {
-    background-color: #16143842 !important;
-    cursor: pointer;
-}
-
-.nav-item a {
-    color: #161438;
-}
 .nav-item a:hover {
     color: white;
+    background-color: #161438 !important;
 }

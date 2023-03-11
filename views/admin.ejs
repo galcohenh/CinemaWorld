@@ -17,11 +17,11 @@
         <a href="/"><img src="/assets/slogan_white.png" href="/" class="icon-img"></a>
         <h1>Admin page</h1>
     </header>
-    <ul class="nav justify-content-center">
-        <li class="nav-item"><a onclick="loadPanel('admin/createMovieForm')">Add new movie</a></li>
-        <li class="nav-item"><a onclick="loadPanel('admin/manageMoviesForm')">Manage movies</a></li>
-        <li class="nav-item"><a onclick="loadPanel('admin/addUserForm')">Add new user</a></li>
-        <li class="nav-item"><a onclick="loadPanel('admin/manageUsersForm')">Manage users</a></li>
+    <ul id="navbar" class="nav justify-content-center">
+        <li class="nav-item"><a id="createMovieFormLink" onclick="loadPanel('admin/createMovieForm')">Add new movie</a></li>
+        <li class="nav-item"><a id="manageMoviesFormLink" onclick="loadPanel('admin/manageMoviesForm')">Manage movies</a></li>
+        <li class="nav-item"><a id="addUserFormLink" onclick="loadPanel('admin/addUserForm')">Add new user</a></li>
+        <li class="nav-item"><a id="manageUsersFormLink" onclick="loadPanel('admin/manageUsersForm')">Manage users</a></li>
     </ul>
     <div id="admin-panel"></div>
     <footer>

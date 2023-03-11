@@ -45,6 +45,7 @@ $.ajax({
         console.log("AJAX request failed: " + error);
     },
 });
+loadPanel('admin/createMovieForm')
 
 function loadPanel(panelUrl) {
     const adminPanel = document.getElementById('admin-panel');
@@ -53,7 +54,7 @@ function loadPanel(panelUrl) {
         method: "GET",
         success: function (response) {
             adminPanel.innerHTML = response;
-            loadScripts(panelUrl)
+            loadPanelElements(panelUrl)
         },
         error: function (xhr, status, error) {
             console.log("AJAX request failed: " + error);
@@ -61,15 +62,31 @@ function loadPanel(panelUrl) {
     });
 }
 
-function loadScripts(panelUrl)
+function initNavBarElements()
 {
-    if(panelUrl === 'admin/manageMoviesForm') {
+    const navBar = document.getElementById('navbar');
+    const navbarElements = navBar.getElementsByTagName("a")
+    for (let i = 0; i < navbarElements.length; i++) {
+        navbarElements[i].classList = ["unselected-nav"];
+    }
+}
+
+function loadPanelElements(panelUrl)
+{
+    initNavBarElements();
+
+    if(panelUrl === 'admin/createMovieForm') {
+        const adminPanel = document.getElementById('createMovieFormLink');
+        adminPanel.classList = ["selected-nav"];
+    }
+    else if(panelUrl === 'admin/manageMoviesForm') {
+        const adminPanel = document.getElementById('manageMoviesFormLink');
+        adminPanel.classList = ["selected-nav"];
         loadTable();
     }
 }
 
 function loadTable() {
-    console.log(movies);
     var tableBody = document.querySelector("#movie-table tbody");
     tableBody.innerHTML = "";
     movies.forEach(function (movie) {
