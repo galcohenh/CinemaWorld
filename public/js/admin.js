@@ -69,7 +69,9 @@ function loadScripts(panelUrl)
 }
 
 function loadTable() {
+    console.log(movies);
     var tableBody = document.querySelector("#movie-table tbody");
+    tableBody.innerHTML = "";
     movies.forEach(function (movie) {
         var row = document.createElement("tr");
 
@@ -94,5 +96,27 @@ function loadTable() {
         row.appendChild(imgCell);
 
         tableBody.appendChild(row);
+
+        var oprCell = document.createElement("td");
+        const button = document.createElement("button");
+        button.textContent = "Delete";
+        button.onclick = () => {deleteMovie(movie._id)}
+        oprCell.appendChild(button);
+        row.appendChild(oprCell);
+
+        tableBody.appendChild(row);
     });
+}
+
+function deleteMovie(movieId)
+{
+    $.ajax({
+        url: `api/movies/${movieId}`,
+        method: "DELETE",
+    });
+    const movieIndex = movies.findIndex(movie => movie._id === movieId);
+    if (movieIndex > -1) {
+        movies.splice(movieIndex, 1);
+        loadTable();
+    }
 }

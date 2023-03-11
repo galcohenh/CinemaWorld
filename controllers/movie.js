@@ -40,6 +40,11 @@ const getMovie = async (req, res) => {
     res.json(movie);
 };
 
+const deleteMovie = async (req, res) => {
+    const movie = await movieService.deleteMovie(req.params.id);
+    res.json(movie);
+};
+
 const getMovies = async (req, res) => {
     const movies = await movieService.getMovies(req.query.pageNum);
     res.json(movies);
@@ -49,5 +54,6 @@ module.exports =  {
     index,
     getMovie,
     createMovie,
-    getMovies
+    getMovies,
+    deleteMovie
 };

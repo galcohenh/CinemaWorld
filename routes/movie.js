@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { index, createMovie, getMovies, getMovie } = require('../controllers/movie');
+const { index, createMovie, getMovies, getMovie, deleteMovie } = require('../controllers/movie');
 
 const router = express.Router();
 
@@ -14,6 +14,6 @@ router.route('/api/movies')
 
 router.route('/api/movies/:id')
     .get(getMovie)
-
+    .delete(deleteMovie)
 
 module.exports = {router};
