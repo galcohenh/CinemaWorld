@@ -74,16 +74,29 @@ function initNavBarElements()
 function loadPanelElements(panelUrl)
 {
     initNavBarElements();
+    let adminPanel;
 
     if(panelUrl === 'admin/createMovieForm') {
-        const adminPanel = document.getElementById('createMovieFormLink');
-        adminPanel.classList = ["selected-nav"];
+        adminPanel = document.getElementById('createMovieFormLink');
     }
     else if(panelUrl === 'admin/manageMoviesForm') {
-        const adminPanel = document.getElementById('manageMoviesFormLink');
-        adminPanel.classList = ["selected-nav"];
+        adminPanel = document.getElementById('manageMoviesFormLink');
         loadTable();
     }
+    else if(panelUrl === 'admin/createScreenForm') {
+        adminPanel = document.getElementById('createScreenFormLink');
+    }
+    else if(panelUrl === 'admin/manageScreensForm') {
+        adminPanel = document.getElementById('manageScreensFormLink');
+    }
+    else if(panelUrl === 'admin/createUserForm') {
+        adminPanel = document.getElementById('createUserFormLink');
+    }
+    else if(panelUrl === 'admin/manageUsersForm') {
+        adminPanel = document.getElementById('manageUsersFormLink');
+    }
+
+    adminPanel.classList = ["selected-nav"];
 }
 
 function loadTable() {
