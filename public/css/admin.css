@@ -52,6 +52,7 @@ footer {
 
 .nav>li>a {
     background-color: #16143842 !important;
+    cursor: pointer;
 }
 
 .nav-item a {
