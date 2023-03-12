@@ -63,3 +63,11 @@ footer {
     background-color: #161438 !important;
     cursor: pointer;
 }
+
+#admin-panel {
+    margin-left: 20px;
+}
+
+.form-horizontal .control-label {
+    text-align: left !important;
+}

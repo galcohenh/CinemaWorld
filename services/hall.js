@@ -18,8 +18,13 @@ const getHallByNumber = async (number) => {
     return await Hall.find({ number });
 };
 
+const getHalls = async () => {
+    return await Hall.find({ });
+};
+
 module.exports = {
     createHall,
     getHallById,
-    getHallByNumber
+    getHallByNumber,
+    getHalls
 }

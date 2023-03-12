@@ -1,1 +1,23 @@
 <h1>Create screen</h1>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-sm-10">
+            <label class="control-label col-sm-1 " for="text">Movie</label>
+            <select id="create-screen-select-movie" class="form-control"></select>
+        </div>
+        <div class="col-sm-10">
+            <label class="control-label col-sm-1 " for="text">Time</label>
+            <input type="datetime-local" class="form-control" id="time">
+        </div>
+        <div class="col-sm-10">
+            <label class="control-label col-sm-1 " for="text">Hall Number</label>
+            <select id="create-screen-select-hall" class="form-control"></select>
+        </div>
+        <div class="col-sm-10">
+            <div class="control-label col-sm-1">
+                <button id="AppointmentSubmitButton" onclick="addScreen()" class="btn btn-default">Send</button>
+                <div class="statusOutput"></div>
+            </div>
+        </div>
+    </div>
+</div>

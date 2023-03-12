@@ -1,14 +1,14 @@
-const onCreateMovie = () => {
+const createMovie = () => {
     const name = document.getElementById('name').value;
     const releaseDate = document.getElementById('release-date').value;
     const genre = document.getElementById('genre').value;
     const duration = document.getElementById('duration').value;
     const imgUrl = document.getElementById('img-url').value;
 
-    const time = document.getElementById('time').value;
-    const hall = document.getElementById('hall').value;
-    // const screens = document.getElementById('screens').value;
-
+    if (name === '' || releaseDate === '' || genre === '' || duration === '' || imgUrl === '') {
+        alert("Please fill all fields");
+        return;
+    }
 
     const data = {
         name,
@@ -16,21 +16,20 @@ const onCreateMovie = () => {
         genre: genre.split(','),
         duration: parseInt(duration),
         img: imgUrl,
-        screens: [{
-            time: time,
-            hall: { number: parseInt(hall) },
-            takenSeats: [{}]
-        }]
     }
 
-    fetch('http://localhost:8080/api/movies', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-type': 'application/json',
-        }
-    })
-    // console.log({name, releaseDate, genre, duration, imgUrl, screens})
+    $.ajax({
+        url: `/api/movies`,
+        method: "POST",
+        dataType: "json",
+        data: data,
+        success: function (response) {
+            alert("Movie was updated successfuly");
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX request failed: " + error);
+        },
+    });
 }
 
 let movies = [];
@@ -45,6 +44,19 @@ $.ajax({
         console.log("AJAX request failed: " + error);
     },
 });
+let halls = [];
+$.ajax({
+    url: `/halls`,
+    method: "GET",
+    dataType: "json",
+    success: function (response) {
+        halls = response;
+    },
+    error: function (xhr, status, error) {
+        console.log("AJAX request failed: " + error);
+    },
+});
+
 loadPanel('admin/createMovieForm')
 
 function loadPanel(panelUrl) {
@@ -62,8 +74,7 @@ function loadPanel(panelUrl) {
     });
 }
 
-function initNavBarElements()
-{
+function initNavBarElements() {
     const navBar = document.getElementById('navbar');
     const navbarElements = navBar.getElementsByTagName("a")
     for (let i = 0; i < navbarElements.length; i++) {
@@ -71,28 +82,28 @@ function initNavBarElements()
     }
 }
 
-function loadPanelElements(panelUrl)
-{
+function loadPanelElements(panelUrl) {
     initNavBarElements();
     let adminPanel;
 
-    if(panelUrl === 'admin/createMovieForm') {
+    if (panelUrl === 'admin/createMovieForm') {
         adminPanel = document.getElementById('createMovieFormLink');
     }
-    else if(panelUrl === 'admin/manageMoviesForm') {
+    else if (panelUrl === 'admin/manageMoviesForm') {
         adminPanel = document.getElementById('manageMoviesFormLink');
         loadTable();
     }
-    else if(panelUrl === 'admin/createScreenForm') {
+    else if (panelUrl === 'admin/createScreenForm') {
         adminPanel = document.getElementById('createScreenFormLink');
+        loadCreateScreenForm();
     }
-    else if(panelUrl === 'admin/manageScreensForm') {
+    else if (panelUrl === 'admin/manageScreensForm') {
         adminPanel = document.getElementById('manageScreensFormLink');
     }
-    else if(panelUrl === 'admin/createUserForm') {
+    else if (panelUrl === 'admin/createUserForm') {
         adminPanel = document.getElementById('createUserFormLink');
     }
-    else if(panelUrl === 'admin/manageUsersForm') {
+    else if (panelUrl === 'admin/manageUsersForm') {
         adminPanel = document.getElementById('manageUsersFormLink');
     }
 
@@ -130,7 +141,7 @@ function loadTable() {
         var oprCell = document.createElement("td");
         const button = document.createElement("button");
         button.textContent = "Delete";
-        button.onclick = () => {deleteMovie(movie._id)}
+        button.onclick = () => { deleteMovie(movie._id) }
         oprCell.appendChild(button);
         row.appendChild(oprCell);
 
@@ -138,8 +149,26 @@ function loadTable() {
     });
 }
 
-function deleteMovie(movieId)
-{
+function loadCreateScreenForm() {
+    let selectMovie = document.getElementById('create-screen-select-movie');
+    selectMovie.innerHTML = "<option selected value=''>choose a movie</option>";
+    movies.forEach(movie => {
+        const movieOption = document.createElement("option");
+        movieOption.value = movie._id;
+        movieOption.text = `${movie._id} - ${movie.name}`
+        selectMovie.appendChild(movieOption);
+    });
+    let selectHall = document.getElementById('create-screen-select-hall');
+    selectHall.innerHTML = "<option selected value=''>choose a hall</option>";
+    halls.forEach(hall => {
+        const hallOption = document.createElement("option");
+        hallOption.value = hall._id;
+        hallOption.text = `No.${hall.number}`
+        selectHall.appendChild(hallOption);
+    });
+}
+
+function deleteMovie(movieId) {
     $.ajax({
         url: `api/movies/${movieId}`,
         method: "DELETE",
@@ -149,4 +178,34 @@ function deleteMovie(movieId)
         movies.splice(movieIndex, 1);
         loadTable();
     }
+}
+
+function addScreen() {
+    const movieId = document.getElementById('create-screen-select-movie').value;
+    const time = document.getElementById('time').value;
+    const hallId = document.getElementById('create-screen-select-hall').value;
+
+    if (movieId === '' || time === '' || hallId === '') {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const screen = {
+        movieId: movieId,
+        time: time,
+        hallId: hallId,
+    }
+
+    $.ajax({
+        url: `/screen`,
+        method: "POST",
+        dataType: "json",
+        data: screen,
+        success: function (response) {
+            alert("Screen was updated successfuly");
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX request failed: " + error);
+        },
+    });
 }

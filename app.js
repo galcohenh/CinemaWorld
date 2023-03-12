@@ -34,6 +34,7 @@ app.use("/", movieRouter);
 app.use("/screen", require("./routes/screen"));
 app.use("/order", require("./routes/order_tickets"));
 app.use("/admin", require("./routes/admin"));
+app.use("/halls", require("./routes/halls"));
 app.use("/about", require("./routes/about"));
 
 //sockets

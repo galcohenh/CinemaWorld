@@ -1,11 +1,11 @@
 const express = require('express');
 
-const { index, addScreen } = require('../controllers/screen');
+const { createHall, getHalls } = require('../controllers/hall');
 
 const router = express.Router();
 
 router.route('/')
-    .get(index)
-    .post(addScreen);
+    .post(createHall)
+    .get(getHalls)
 
 module.exports = router;
