@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { index, createMovieForm, manageMoviesForm, createScreenForm, manageScreensForm, createUserForm, manageUsersForm } = require('../controllers/admin');
+const { index, createMovieForm, manageMoviesForm, createScreenForm, manageScreensForm, createHallForm, manageHallsForm } = require('../controllers/admin');
 
 const router = express.Router();
 
@@ -10,7 +10,7 @@ router.get('/createMovieForm', createMovieForm);
 router.get('/manageMoviesForm', manageMoviesForm);
 router.get('/createScreenForm', createScreenForm);
 router.get('/manageScreensForm', manageScreensForm);
-router.get('/createUserForm', createUserForm);
-router.get('/manageUsersForm', manageUsersForm);
+router.get('/createHallForm', createHallForm);
+router.get('/manageHallsForm', manageHallsForm);
 
 module.exports = router;

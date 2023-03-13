@@ -19,14 +19,14 @@ const manageScreensForm = (req, res) => {
     res.render("../views/admin-forms/manage-screens-form.ejs");
 }
 
-const createUserForm = (req, res) => {
-    res.render("../views/admin-forms/create-user-form.ejs");
+const createHallForm = (req, res) => {
+    res.render("../views/admin-forms/create-hall-form.ejs");
 }
 
-const manageUsersForm = (req, res) => {
-    res.render("../views/admin-forms/manage-users-form.ejs");
+const manageHallsForm = (req, res) => {
+    res.render("../views/admin-forms/manage-halls-form.ejs");
 }
 
 module.exports =  {
-    index, createMovieForm, manageMoviesForm, createScreenForm, manageScreensForm, createUserForm, manageUsersForm
+    index, createMovieForm, manageMoviesForm, createScreenForm, manageScreensForm, createHallForm, manageHallsForm
 };

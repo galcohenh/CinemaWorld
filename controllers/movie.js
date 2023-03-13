@@ -10,18 +10,21 @@ const index = async(req, res) => {
 
 const createMovie = async (req, res) => {
     const {name, releaseDate, screens, genre, duration, img} = req.body;
-
-    const screensWithRefToHalls = await Promise.all(screens.map(async screen => {
-        const [hall] = await hallService.getHallByNumber(screen.hall.number);
-        if (!hall) {
-            return null;
-        }
-        
-        return {
-            ...screen,
-            hall: hall._id
-        }
-    }));
+    
+    let screensWithRefToHalls = [];
+    if (screens !== undefined && screens.length !== 0) {
+        screensWithRefToHalls = await Promise.all(screens.map(async screen => {
+            const [hall] = await hallService.getHallByNumber(screen.hall.number);
+            if (!hall) {
+                return null;
+            }
+            
+            return {
+                ...screen,
+                hall: hall._id
+            }
+        }));
+    }
 
     const hasNoMatchingHall = screensWithRefToHalls.some((screenWithRefToHall) => { 
         return !screenWithRefToHall

@@ -17,7 +17,11 @@ const addScreen = async (req, res) => {
   res.json(newScreen);
 };
 
+const deleteScreen = async (req, res) => {
+  const newScreen = await screenService.deleteScreen(req.body.movieId, req.body.screenId);
+  res.json(newScreen);
+};
 
 module.exports = {
-  index, addScreen
+  index, addScreen, deleteScreen
 };

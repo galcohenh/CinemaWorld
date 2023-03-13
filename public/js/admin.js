@@ -1,4 +1,4 @@
-const createMovie = () => {
+function createMovie() {
     const name = document.getElementById('name').value;
     const releaseDate = document.getElementById('release-date').value;
     const genre = document.getElementById('genre').value;
@@ -16,14 +16,16 @@ const createMovie = () => {
         genre: genre.split(','),
         duration: parseInt(duration),
         img: imgUrl,
+        screens: []
     }
-
     $.ajax({
         url: `/api/movies`,
         method: "POST",
         dataType: "json",
         data: data,
         success: function (response) {
+            updateMovies();
+            loadPanel('admin/manageMoviesForm')
             alert("Movie was updated successfuly");
         },
         error: function (xhr, status, error) {
@@ -32,32 +34,33 @@ const createMovie = () => {
     });
 }
 
-let movies = [];
-$.ajax({
-    url: `/api/movies`,
-    method: "GET",
-    dataType: "json",
-    success: function (response) {
-        movies = response;
-    },
-    error: function (xhr, status, error) {
-        console.log("AJAX request failed: " + error);
-    },
-});
-let halls = [];
-$.ajax({
-    url: `/halls`,
-    method: "GET",
-    dataType: "json",
-    success: function (response) {
-        halls = response;
-    },
-    error: function (xhr, status, error) {
-        console.log("AJAX request failed: " + error);
-    },
-});
+function updateMovies() {
+    $.ajax({
+        url: `/api/movies`,
+        method: "GET",
+        dataType: "json",
+        success: function (response) {
+            movies = response;
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX request failed: " + error);
+        },
+    });
+}
 
-loadPanel('admin/createMovieForm')
+function updateHalls() {
+    $.ajax({
+        url: `/halls`,
+        method: "GET",
+        dataType: "json",
+        success: function (response) {
+            halls = response;
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX request failed: " + error);
+        },
+    });
+}
 
 function loadPanel(panelUrl) {
     const adminPanel = document.getElementById('admin-panel');
@@ -91,7 +94,7 @@ function loadPanelElements(panelUrl) {
     }
     else if (panelUrl === 'admin/manageMoviesForm') {
         adminPanel = document.getElementById('manageMoviesFormLink');
-        loadTable();
+        loadMovieTable();
     }
     else if (panelUrl === 'admin/createScreenForm') {
         adminPanel = document.getElementById('createScreenFormLink');
@@ -99,18 +102,19 @@ function loadPanelElements(panelUrl) {
     }
     else if (panelUrl === 'admin/manageScreensForm') {
         adminPanel = document.getElementById('manageScreensFormLink');
+        loadScreensTable();
     }
-    else if (panelUrl === 'admin/createUserForm') {
-        adminPanel = document.getElementById('createUserFormLink');
+    else if (panelUrl === 'admin/createHallForm') {
+        adminPanel = document.getElementById('createHallFormLink');
     }
-    else if (panelUrl === 'admin/manageUsersForm') {
-        adminPanel = document.getElementById('manageUsersFormLink');
+    else if (panelUrl === 'admin/manageHallsForm') {
+        adminPanel = document.getElementById('manageHallsFormLink');
     }
 
     adminPanel.classList = ["selected-nav"];
 }
 
-function loadTable() {
+function loadMovieTable() {
     var tableBody = document.querySelector("#movie-table tbody");
     tableBody.innerHTML = "";
     movies.forEach(function (movie) {
@@ -135,8 +139,6 @@ function loadTable() {
         var imgCell = document.createElement("td");
         imgCell.textContent = movie.img;
         row.appendChild(imgCell);
-
-        tableBody.appendChild(row);
 
         var oprCell = document.createElement("td");
         const button = document.createElement("button");
@@ -168,6 +170,38 @@ function loadCreateScreenForm() {
     });
 }
 
+
+function loadScreensTable() {
+    var tableBody = document.querySelector("#screens-table tbody");
+    tableBody.innerHTML = "";
+    movies.forEach(function (movie) {
+        movie.screens.forEach(function (screen) {
+            var row = document.createElement("tr");
+            var movieCell = document.createElement("td");
+            movieCell.textContent = movie.name;
+            row.appendChild(movieCell);
+    
+            var timeCell = document.createElement("td");
+            timeCell.textContent = screen.time;
+            row.appendChild(timeCell);
+    
+            var hallCell = document.createElement("td");
+            const hall = halls.find(hall => hall._id == screen.hall._id);
+            hallCell.textContent = hall.number;
+            row.appendChild(hallCell);
+    
+            var oprCell = document.createElement("td");
+            const button = document.createElement("button");
+            button.textContent = "Delete";
+            button.onclick = () => { deleteScreen(movie._id, screen._id) }
+            oprCell.appendChild(button);
+            row.appendChild(oprCell);
+    
+            tableBody.appendChild(row);
+        });
+    });
+}
+
 function deleteMovie(movieId) {
     $.ajax({
         url: `api/movies/${movieId}`,
@@ -176,7 +210,28 @@ function deleteMovie(movieId) {
     const movieIndex = movies.findIndex(movie => movie._id === movieId);
     if (movieIndex > -1) {
         movies.splice(movieIndex, 1);
-        loadTable();
+        loadMovieTable();
+    }
+}
+
+function deleteScreen(movieId, screenId) {
+    $.ajax({
+        url: '/screen',
+        method: "DELETE",
+        data: {
+            movieId: movieId,
+            screenId: screenId
+        }
+    });
+    const movieIndex = movies.findIndex(movie => movie._id === movieId);
+    if (movieIndex > -1) {
+        const screenIndex = movies[movieIndex].screens.findIndex(screen => screen._id === screenId);
+        if (screenIndex > -1) {
+            console.log(movies[movieIndex].screens);
+            movies[movieIndex].screens.splice(screenIndex, 1);
+            console.log(movies[movieIndex].screens);
+            loadScreensTable();
+        }
     }
 }
 
@@ -202,6 +257,8 @@ function addScreen() {
         dataType: "json",
         data: screen,
         success: function (response) {
+            updateMovies();
+            loadPanel('admin/manageScreensForm')
             alert("Screen was updated successfuly");
         },
         error: function (xhr, status, error) {
@@ -209,3 +266,9 @@ function addScreen() {
         },
     });
 }
+
+let movies = [];
+updateMovies();
+let halls = [];
+updateHalls();
+loadPanel('admin/createMovieForm')

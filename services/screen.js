@@ -72,9 +72,22 @@ const addScreen = async (movieId, time, hallId) => {
   return screen;
 };
 
+const deleteScreen = async (movieId, screenId) => {
+  const movie = await movieService.getMovieById(movieId);
+  if (!movie) {
+    return null;
+  }
+  const screenIndex = movie.screens.findIndex(screen => screen._id === screenId);
+  movie.screens.splice(screenIndex, 1);
+
+  await movie.save();
+  return screen;
+};
+
 module.exports = {
   getMovieScreen,
   addTakenSeat,
   removeTakenSeat,
-  addScreen
+  addScreen,
+  deleteScreen
 };
