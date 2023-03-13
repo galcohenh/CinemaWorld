@@ -61,12 +61,279 @@ const deleteMovie = async (id) => {
   return movie;
 };
 
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: selectedGenre,
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$genre",
+//         movies: {
+//           $push: {
+//             _id: "$_id",
+//             name: "$name",
+//             releaseDate: "$releaseDate",
+//             screens: "$screens",
+//             genre: "$genre",
+//             duration: "$duration",
+//             img: "$img",
+//           },
+//         },
+//       },
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         movies: 1,
+//       },
+//     },
+//   ];
+
+//   const movies = await Movie.aggregate(pipeline);
+//   return movies[0].movies;
+// };
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: { $in: [selectedGenre] },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: { $arrayElemAt: ['$genre', 0] },
+//         movies: {
+//           $push: {
+//             _id: "$_id",
+//             name: "$name",
+//             releaseDate: "$releaseDate",
+//             screens: "$screens",
+//             genre: "$genre",
+//             duration: "$duration",
+//             img: "$img",
+//           },
+//         },
+//       },
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         movies: 1,
+//       },
+//     },
+//   ];
+
+//   const movies = await Movie.aggregate(pipeline);
+//   return movies[0].movies;
+// };
+
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: { $in: [selectedGenre] },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$genre",
+//         movies: {
+//           $push: {
+//             _id: "$_id",
+//             name: "$name",
+//             releaseDate: "$releaseDate",
+//             screens: "$screens",
+//             genre: "$genre",
+//             duration: "$duration",
+//             img: "$img",
+//           },
+//         },
+//       },
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         movies: 1,
+//       },
+//     },
+//     {
+//       $sort: {
+//         releaseDate: -1
+//       }
+//     }
+//   ];
+
+//   const movies = await Movie.aggregate(pipeline);
+//   return movies[0].movies;
+// };
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: { $in: [selectedGenre] },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$_id",
+//         name: { $first: "$name" },
+//         releaseDate: { $first: "$releaseDate" },
+//         screens: { $first: "$screens" },
+//         genre: { $push: "$genre" },
+//         duration: { $first: "$duration" },
+//         img: { $first: "$img" },
+//       },
+//     },
+//     {
+//       $sort: {
+//         releaseDate: -1
+//       }
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         name: 1,
+//         releaseDate: 1,
+//         screens: 1,
+//         genre: 1,
+//         duration: 1,
+//         img: 1,
+//       },
+//     },
+//   ];
+
+//   const movies = await Movie.aggregate(pipeline);
+//   return movies;
+// };
+
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: { $in: [selectedGenre] },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$name",
+//         releaseDate: { $first: "$releaseDate" },
+//         screens: { $first: "$screens" },
+//         genre: { $push: "$genre" },
+//         duration: { $first: "$duration" },
+//         img: { $first: "$img" },
+//       },
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         name: "$_id",
+//         releaseDate: 1,
+//         screens: 1,
+//         genre: 1,
+//         duration: 1,
+//         img: 1,
+//       },
+//     },
+//   ];
+
+//   const movies = await Movie.aggregate(pipeline);
+//   return movies;
+// };
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: { $in: [selectedGenre] },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$genre",
+//         movies: {
+//           $push: {
+//             _id: "$_id",
+//             name: "$name",
+//             releaseDate: "$releaseDate",
+//             screens: "$screens",
+//             genre: "$genre",
+//             duration: "$duration",
+//             img: "$img",
+//             video:"$video"
+//           },
+//         },
+//       },
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         movies: 1,
+//       },
+//     }
+    
+//   ];
+
+//   const movies = await Movie.aggregate(pipeline);
+//   return movies[0].movies;
+// };
+
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const movies = await Movie.find({ genre: { $in: [selectedGenre] } });
+//   return movies;
+// };
+
+// const groupMoviesByGenre = async (selectedGenre) => {
+//   const pipeline = [
+//     {
+//       $match: {
+//         genre: { $in: [selectedGenre] },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$genre",
+//         movies: {
+//           $push: {
+//             _id: "$_id",
+//             name: "$name",
+//             releaseDate: "$releaseDate",
+//             screens: "$screens",
+//             genre: "$genre",
+//             duration: "$duration",
+//             img: "$img",
+//             video:"$video"
+//           },
+//         },
+//       },
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         movies: 1,
+//       },
+//     }
+//   ];
+
+//   console.log("Pipeline:", JSON.stringify(pipeline));
+
+//   const movies = await Movie.aggregate(pipeline);
+
+//   console.log("Movies:", JSON.stringify(movies));
+
+//   return movies[0].movies;
+// };
+
 const groupMoviesByGenre = async (selectedGenre) => {
   const pipeline = [
     {
       $match: {
-        genre: selectedGenre,
-      },
+        genre: {
+          $regex: selectedGenre,
+          $options: "i"
+        }
+      }
     },
     {
       $group: {
@@ -80,6 +347,7 @@ const groupMoviesByGenre = async (selectedGenre) => {
             genre: "$genre",
             duration: "$duration",
             img: "$img",
+            video:"$video"
           },
         },
       },
@@ -89,12 +357,13 @@ const groupMoviesByGenre = async (selectedGenre) => {
         _id: 0,
         movies: 1,
       },
-    },
+    }
   ];
 
   const movies = await Movie.aggregate(pipeline);
   return movies[0].movies;
 };
+
 
 
 module.exports = {

@@ -9,11 +9,15 @@
   </head>
 
   <body>
-    <div class="slogan-div">
+    
+    <nav class="slogan-div">
       <img src="/assets/slogan_white.png" class="icon-img" />
       <a href="about">about</a>
       <a href="admin">admin</a>
-    </div>
+      <button class="btn">Log in</button>
+      
+    </nav>
+  
     <div class="poster-container"></div>
 
     <div class="select-movie">
@@ -59,13 +63,12 @@
         <img class="movie-card" src="https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0138_1024x1024.jpeg?v=1571444282" alt="">
     </div> -->
 
-    <div class="movie-cards-container">
+     <div class="movie-cards-container">
       <%for (var i=0; i < movies.length; i++) {%>
       <img class="movie-card" alt="" src="<%=movies[i].img%>" />
       <%}%>
-    </div>
-    
-    
+    </div> 
+
   </body>
   <footer>
     <script src="/js/movies.js"></script>

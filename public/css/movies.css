@@ -9,6 +9,7 @@ body {
 .slogan-div {
     position: sticky;
     top: 0;
+  
 }
 
 .icon-img {
@@ -41,7 +42,13 @@ body {
 
 .movie-card {
     max-width: 270px;
-    width: 20%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  perspective: 1000px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .movie-cards-title {
@@ -114,3 +121,131 @@ footer {
     background-color: #fff;
     color: #333;
   }
+
+
+  .movie-card .card-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .movie-card .front-face {
+    z-index: 1;
+  }
+  
+  .movie-card .back-face {
+    transform: rotateY(180deg);
+  }
+  
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 1.5rem;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  
+  #video-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  /* Style for the movie card links */
+.movie-card-link {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  /* Style for the modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Style for the video player */
+  #video-player {
+    width: 80%;
+    height: 80%;
+  }
+  
+  /* Style for the close button */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #ccc;
+  }
+  
+  .btn {
+    
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    color: greenyellow;
+    background-color: var(--clr-rgba);
+    border: 10px solid white;
+    border-radius: 20px;
+    margin-top: 0%;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 55%;
+    
+  
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+  
+    /* transition: all 0.3s; */
+  }
+  
+  .btn:hover {
+    transform: translateY(-10px);
+    /* background-color: var(--clr-accent);
+    color: var(--clr-light); */
+  }
+
+  
+  

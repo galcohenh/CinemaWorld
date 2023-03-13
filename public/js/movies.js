@@ -74,12 +74,13 @@ function onSelectMovieSearch(e) {
 
 function onSelectGenreSearch(event) {
   var genre = event.target.value;
-  console.log(`/api/genre/${genre}`)
+  console.log(`/api/movies/genre/${genre}`)
   $.ajax({
-    url: `/api/genre/${genre}`,
+    url: `/api/genre/${genre}?t=${new Date().getTime()}`,
     type: "GET",
     dataType: "json",
     success: function (response) {
+      console.log(response);
       // Get a reference to the movie cards container
       var movieCardsContainer = $(".movie-cards-container");
 
@@ -100,3 +101,43 @@ function onSelectGenreSearch(event) {
     },
   });
 }
+
+// // Get all movie card links
+// const movieCardLinks = document.querySelectorAll('.movie-card-link');
+
+// // Add click event listener to each movie card link
+// movieCardLinks.forEach(link => {
+//   link.addEventListener('click', event => {
+//     // Prevent the default behavior of the link
+//     event.preventDefault();
+
+//     // Extract the URL of the trailer video from the data-video attribute
+//     const videoUrl = link.getAttribute('data-video');
+
+//     // Set the source of the video player to the trailer video URL
+//     const videoPlayer = document.getElementById('video-player');
+//     videoPlayer.src = videoUrl;
+
+//     // Open the modal
+//     const modal = document.getElementById('video-modal');
+//     modal.style.display = 'block';
+
+//     // Start playing the video
+//     videoPlayer.play();
+//   });
+// });
+
+// // Close the modal when the user clicks outside of it or on the close button
+// const modal = document.getElementById('video-modal');
+// const closeButton = document.querySelector('.close-button');
+
+// window.onclick = function(event) {
+//   if (event.target == modal || event.target == closeButton) {
+//     modal.style.display = "none";
+
+//     // Stop playing the video
+//     const videoPlayer = document.getElementById('video-player');
+//     videoPlayer.pause();
+//     videoPlayer.currentTime = 0;
+//   }
+// }

@@ -7,6 +7,7 @@ const onCreateMovie = () =>{
 
     const time = document.getElementById('time').value;
     const hall = document.getElementById('hall').value;
+    // const video = document.getElementById('video-url').value;
     // const screens = document.getElementById('screens').value;
 
 
@@ -19,7 +20,8 @@ const onCreateMovie = () =>{
         screens: [{
             time: time,
             hall: {number: parseInt(hall)},
-            takenSeats: [{}]
+            takenSeats: [{}],
+            
         }]
     }
 

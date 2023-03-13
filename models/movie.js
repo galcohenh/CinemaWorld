@@ -34,7 +34,8 @@ const Movie = new Schema({
     img: {
         type: String,
         required: true
-    }
+    },
+    
 });
 
 module.exports = mongoose.model('Movie', Movie);
