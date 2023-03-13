@@ -12,6 +12,16 @@ const index = async (req, res) => {
   });
 };
 
+const addScreen = async (req, res) => {
+  const newScreen = await screenService.addScreen(req.body.movieId, req.body.time, req.body.hallId);
+  res.json(newScreen);
+};
+
+const deleteScreen = async (req, res) => {
+  const newScreen = await screenService.deleteScreen(req.body.movieId, req.body.screenId);
+  res.json(newScreen);
+};
+
 module.exports = {
-  index,
+  index, addScreen, deleteScreen
 };

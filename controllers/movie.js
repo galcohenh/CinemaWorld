@@ -10,18 +10,21 @@ const index = async(req, res) => {
 
 const createMovie = async (req, res) => {
     const {name, releaseDate, screens, genre, duration, img} = req.body;
-
-    const screensWithRefToHalls = await Promise.all(screens.map(async screen => {
-        const [hall] = await hallService.getHallByNumber(screen.hall.number);
-        if (!hall) {
-            return null;
-        }
-        
-        return {
-            ...screen,
-            hall: hall._id
-        }
-    }));
+    
+    let screensWithRefToHalls = [];
+    if (screens !== undefined && screens.length !== 0) {
+        screensWithRefToHalls = await Promise.all(screens.map(async screen => {
+            const [hall] = await hallService.getHallByNumber(screen.hall.number);
+            if (!hall) {
+                return null;
+            }
+            
+            return {
+                ...screen,
+                hall: hall._id
+            }
+        }));
+    }
 
     const hasNoMatchingHall = screensWithRefToHalls.some((screenWithRefToHall) => { 
         return !screenWithRefToHall
@@ -40,6 +43,11 @@ const getMovie = async (req, res) => {
     res.json(movie);
 };
 
+const deleteMovie = async (req, res) => {
+    const movie = await movieService.deleteMovie(req.params.id);
+    res.json(movie);
+};
+
 const getMovies = async (req, res) => {
     const movies = await movieService.getMovies(req.query.pageNum);
     res.json(movies);
@@ -49,5 +57,6 @@ module.exports =  {
     index,
     getMovie,
     createMovie,
-    getMovies
+    getMovies,
+    deleteMovie
 };

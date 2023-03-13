@@ -5,6 +5,16 @@ const createHall = async (req, res) => {
     res.json(newHall);
 };
 
+const getHalls = async (req, res) => {
+    const halls = await hallService.getHalls();
+    res.json(halls);
+};
+
+const deleteHall = async (req, res) => {
+    const halls = await hallService.deleteHall(req.params.id);
+    res.json(halls);
+};
+
 module.exports = {
-    createHall
-  };
+    createHall, getHalls, deleteHall
+};

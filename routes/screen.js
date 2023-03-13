@@ -1,9 +1,12 @@
 const express = require('express');
 
-const { index } = require('../controllers/screen');
+const { index, addScreen, deleteScreen } = require('../controllers/screen');
 
 const router = express.Router();
 
-router.get('/', index);
+router.route('/')
+    .get(index)
+    .post(addScreen)
+    .delete(deleteScreen)
 
 module.exports = router;

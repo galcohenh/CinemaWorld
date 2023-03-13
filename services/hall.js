@@ -18,8 +18,22 @@ const getHallByNumber = async (number) => {
     return await Hall.find({ number });
 };
 
+const deleteHall = async (id) => {
+    const hall = await getHallById(id);
+    if (!hall) return null;
+  
+    await hall.remove();
+    return hall;
+};
+
+const getHalls = async () => {
+    return await Hall.find({ });
+};
+
 module.exports = {
     createHall,
     getHallById,
-    getHallByNumber
+    getHallByNumber,
+    getHalls,
+    deleteHall
 }
