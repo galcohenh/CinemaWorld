@@ -10,7 +10,11 @@ const getHalls = async (req, res) => {
     res.json(halls);
 };
 
+const deleteHall = async (req, res) => {
+    const halls = await hallService.deleteHall(req.params.id);
+    res.json(halls);
+};
 
 module.exports = {
-    createHall, getHalls
+    createHall, getHalls, deleteHall
 };

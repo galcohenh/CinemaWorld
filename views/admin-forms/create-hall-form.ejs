@@ -1,1 +1,23 @@
 <h1>Create hall</h1>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-sm-10">
+            <label class="control-label col-sm-1" for="text">Number</label>
+            <input type="number" class="form-control" id="hall-number-field" placeholder="Hall number">
+        </div>
+        <div class="col-sm-10">
+            <label class="control-label col-sm-1 " for="text">Rows</label>
+            <input type="number" class="form-control" id="hall-rows-field" placeholder="Hall num of rows">
+        </div>
+        <div class="col-sm-10">
+            <label class="control-label col-sm-1 " for="text">Columns</label>
+            <input type="number" class="form-control" id="hall-columns-field" placeholder="Hall num of columns">
+        </div>
+        <div class="col-sm-10">
+            <div class="control-label col-sm-1">
+                <button id="AppointmentSubmitButton" onclick="addHall()" class="btn btn-default">Send</button>
+                <div class="statusOutput"></div>
+            </div>
+        </div>
+    </div>
+</div>

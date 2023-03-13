@@ -55,6 +55,7 @@ function updateHalls() {
         dataType: "json",
         success: function (response) {
             halls = response;
+            console.log(response);
         },
         error: function (xhr, status, error) {
             console.log("AJAX request failed: " + error);
@@ -109,6 +110,7 @@ function loadPanelElements(panelUrl) {
     }
     else if (panelUrl === 'admin/manageHallsForm') {
         adminPanel = document.getElementById('manageHallsFormLink');
+        loadHallsTable();
     }
 
     adminPanel.classList = ["selected-nav"];
@@ -202,6 +204,35 @@ function loadScreensTable() {
     });
 }
 
+function loadHallsTable() {
+    var tableBody = document.querySelector("#halls-table tbody");
+    tableBody.innerHTML = "";
+    halls.forEach(function (hall) {
+        console.log(hall);
+        var row = document.createElement("tr");
+        var numberCell = document.createElement("td");
+        numberCell.textContent = hall.number;
+        row.appendChild(numberCell);
+
+        var rowsCell = document.createElement("td");
+        rowsCell.textContent = hall.rows;
+        row.appendChild(rowsCell);
+
+        var columnsCell = document.createElement("td");
+        columnsCell.textContent = hall.columns;
+        row.appendChild(columnsCell);
+        
+        var oprCell = document.createElement("td");
+        const button = document.createElement("button");
+        button.textContent = "Delete";
+        button.onclick = () => { deleteHall(hall._id) }
+        oprCell.appendChild(button);
+        row.appendChild(oprCell);
+
+        tableBody.appendChild(row);
+    });
+}
+
 function deleteMovie(movieId) {
     $.ajax({
         url: `api/movies/${movieId}`,
@@ -227,11 +258,21 @@ function deleteScreen(movieId, screenId) {
     if (movieIndex > -1) {
         const screenIndex = movies[movieIndex].screens.findIndex(screen => screen._id === screenId);
         if (screenIndex > -1) {
-            console.log(movies[movieIndex].screens);
             movies[movieIndex].screens.splice(screenIndex, 1);
-            console.log(movies[movieIndex].screens);
             loadScreensTable();
         }
+    }
+}
+
+function deleteHall(hallId) {
+    $.ajax({
+        url: `halls/${hallId}`,
+        method: "DELETE",
+    });
+    const hallIndex = halls.findIndex(hall => hall._id === hallId);
+    if (hallIndex > -1) {
+        halls.splice(hallIndex, 1);
+        loadHallsTable();
     }
 }
 
@@ -267,6 +308,37 @@ function addScreen() {
     });
 }
 
+function addHall() {
+    const number = document.getElementById('hall-number-field').value;
+    const rows = document.getElementById('hall-rows-field').value;
+    const columns = document.getElementById('hall-columns-field').value;
+
+    if (number === '' || rows === '' || columns === '') {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const hall = {
+        number: number,
+        rows: rows,
+        columns: columns,
+    }
+
+    $.ajax({
+        url: `/halls`,
+        method: "POST",
+        dataType: "json",
+        data: hall,
+        success: function (response) {
+            updateHalls();
+            loadPanel('admin/manageHallsForm')
+            alert("Screen was updated successfuly");
+        },
+        error: function (xhr, status, error) {
+            console.log("AJAX request failed: " + error);
+        },
+    });
+}
 let movies = [];
 updateMovies();
 let halls = [];
